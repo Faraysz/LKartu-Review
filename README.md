@@ -1,65 +1,199 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+<p align="center"><div align="center">
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+  <img src="https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white" alt="Laravel">
+  <img src="https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white" alt="PHP">
+  <img src="https://img.shields.io/badge/Blade-F7523F?style=for-the-badge&logo=laravel&logoColor=white" alt="Blade">
+  <img src="https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white" alt="Vite">
 
-## About Laravel
+  <br><br>
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+  <h1>🃏 LKartu-Review</h1>
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+  <p><strong>Sistem Kartu Review Digital dengan Kode Unik & Redirect Google Maps</strong></p>
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+  <p>
+    <img src="https://img.shields.io/badge/Version-1.0.0-blue?style=flat-square">
+    <img src="https://img.shields.io/badge/Status-Development-orange?style=flat-square">
+    <img src="https://img.shields.io/badge/Laravel-13.17-FF2D20?style=flat-square&logo=laravel">
+    <img src="https://img.shields.io/badge/PHP-8.3+-777BB4?style=flat-square&logo=php">
+  </p>
 
-## Learning Laravel
+</div>
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+---
 
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## 📋 Tentang Project
 
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
+**LKartu-Review** adalah aplikasi web berbasis **Laravel** untuk mengelola kartu review digital. Setiap kartu memiliki **kode unik 8 karakter** (huruf besar + angka) yang dapat dicetak pada kartu fisik (NFC/QR code). Saat kartu discan, pengguna akan diarahkan ke halaman aktivasi untuk mengisi nama bisnis dan link Google Review. Setelah diaktivasi, kartu akan secara permanen mengarahkan ke link review tersebut.
 
-## Agentic Development
+---
 
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
+## ✨ Fitur Utama
 
-```bash
-composer require laravel/boost --dev
+| Fitur | Deskripsi |
+|-------|-----------|
+| 🃏 **Kode Unik Otomatis** | Generate kode acak 8 karakter (huruf besar + angka) per kartu |
+| 🔗 **Redirect Permanen** | Kartu yang sudah aktif langsung mengarahkan ke link review |
+| 📝 **Form Aktivasi** | Halaman aktivasi untuk mengisi nama bisnis dan URL review |
+| ✅ **Status Kartu** | Status `active` / `inactive` dengan timestamp aktivasi |
+| 👤 **Ownership** | Kartu dapat dikaitkan dengan user tertentu |
+| 🔄 **Reusable** | Kode kartu tetap permanen, hanya target URL yang diatur saat aktivasi |
 
-php artisan boost:install
+---
+
+## 🛠️ Tech Stack
+
+| Layer | Teknologi |
+|-------|-----------|
+| **Framework** | Laravel 13.17 |
+| **Language** | PHP 8.3+ |
+| **Templating** | Blade |
+| **Build Tool** | Vite |
+| **Database** | SQLite / MySQL |
+
+---
+
+## 📂 Struktur File (Sesuai Repository)
+
+```
+LKartu-Review/
+├── app/
+│   ├── Http/
+│   │   └── Controllers/
+│   │       ├── CardController.php      # Controller utama kartu
+│   │       └── Controller.php          # Base controller
+│   └── Models/
+│       ├── Card.php                    # Model kartu (unique_code, status, target_url, dll)
+│       └── User.php                    # Model user
+├── bootstrap/
+├── config/
+├── database/
+│   ├── factories/
+│   ├── migrations/                     # Tabel database
+│   └── seeders/
+├── public/                             # Entry point & asset
+├── resources/
+│   ├── css/
+│   ├── js/
+│   └── views/                          # Blade templates
+├── routes/
+│   ├── console.php
+│   └── web.php                         # Definisi route
+├── storage/
+├── tests/
+├── .editorconfig
+├── .env.example
+├── .gitattributes
+├── .gitignore
+├── .npmrc
+├── AGENTS.md
+├── CLAUDE.md
+├── artisan
+├── composer.json
+├── composer.lock
+├── package.json
+├── phpunit.xml
+├── vite.config.js
+└── README.md
 ```
 
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
+---
 
-## Contributing
+## 🔌 Daftar Route (Sesuai web.php)
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+| Route | Method | Controller | Fungsi |
+|-------|--------|------------|--------|
+| `/` | GET | Closure | Halaman welcome |
+| `/r/{code}` | GET | `CardController@redirect` | Redirect ke link review (atau halaman aktivasi) |
+| `/aktivasi/{code}` | GET | `CardController@activateForm` | Tampilkan form aktivasi kartu |
+| `/aktivasi/{code}` | POST | `CardController@activate` | Proses aktivasi kartu |
+| `/aktivasi/{code}/selesai` | GET | `CardController@activated` | Halaman konfirmasi sukses aktivasi |
 
-## Code of Conduct
+---
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## 🗄️ Skema Model Card (Sesuai Card.php)
 
-## Security Vulnerabilities
+| Field | Tipe | Keterangan |
+|-------|------|------------|
+| `unique_code` | string | Kode unik 8 karakter (huruf besar + angka) |
+| `status` | string | `active` atau `inactive` |
+| `user_id` | integer | ID pemilik kartu (nullable) |
+| `target_url` | string | URL review tujuan (Google Review, dll) |
+| `business_name` | string | Nama bisnis |
+| `activated_at` | datetime | Waktu aktivasi kartu |
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+---
 
-## License
+## ⚙️ Alur Kerja Sistem
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+```
+┌─────────────┐     ┌─────────────────┐     ┌─────────────┐
+│  📱 Scan    │────▶│ /r/{code}       │────▶│ 📋 Cek      │
+│  Kartu      │     │                 │     │   Status    │
+└─────────────┘     └─────────────────┘     └──────┬──────┘
+                                                   │
+                              ┌────────────────────┼────────────────────┐
+                              │                    │                    │
+                              ▼                    ▼                    ▼
+                         ┌─────────┐        ┌─────────────┐      ┌──────────┐
+                         │ ❌      │        │ 📝 Form      │      │ ✅       │
+                         │ 404     │        │  Aktivasi    │      │ Redirect │
+                         │         │        │              │      │ Review   │
+                         └─────────┘        └──────┬──────┘      └──────────┘
+                                                    │
+                                                    ▼
+                                             ┌─────────────┐
+                                             │ ✅ Aktivasi  │
+                                             │   Sukses     │
+                                             │   (Permanen) │
+                                             └─────────────┘
+```
 
-= App\Models\Card {#7915
-    unique_code: "1KD0RQW4",
-    updated_at: "2026-09-09 14:10:58",
-    created_at: "2026-09-09 14:10:58",
-    id: 1,
-  }
+---
+
+## 📝 Cara Pakai
+
+### 1. Generate Kartu Baru
+```php
+// Di tinker atau seeder
+$card = Card::create([
+    'unique_code' => Card::generateUniqueCode(),
+    'status' => 'inactive',
+]);
+```
+
+### 2. Cetak Kode ke Kartu Fisik
+Cetak kode unik (misal: `1KD0RQW4`) pada kartu NFC atau QR code.
+
+### 3. Scan Kartu
+Saat discan, kartu mengarah ke `https://domain.com/r/1KD0RQW4`.
+
+### 4. Aktivasi
+Pengguna mengisi:
+- **Nama Bisnis**: Contoh "Warung Makan Sederhana"
+- **URL Review**: Link Google Review bisnis
+
+Setelah aktivasi, kartu permanen mengarah ke link review tersebut.
+
+---
+
+## 🤝 Kontribusi
+
+Kontribusi sangat diterima! Silakan:
+1. Fork repository ini
+2. Buat branch fitur (`git checkout -b fitur-anda`)
+3. Commit perubahan (`git commit -m 'Tambah fitur X'`)
+4. Push ke branch (`git push origin fitur-anda`)
+5. Buat Pull Request
+
+---
+
+## 📄 Lisensi
+
+Project ini dilisensikan di bawah [MIT License](LICENSE).
+
+---
+
+<div align="center">
+  <sub>Dibuat oleh <a href="https://github.com/Faraysz">@Faraysz</a></sub>
+</div>
