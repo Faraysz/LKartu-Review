@@ -19,3 +19,7 @@ Route::post('/aktivasi/{code}', [CardController::class, 'activate'])
 Route::get('/aktivasi/{code}/selesai', [CardController::class, 'activated'])
     ->name('cards.activated');
 
+// [PROTOTYPE] Generate kartu demo — hapus/pindah ke admin dashboard nanti
+Route::post('/demo/buat', [CardController::class, 'createDemo'])
+    ->name('cards.demo.create');
+

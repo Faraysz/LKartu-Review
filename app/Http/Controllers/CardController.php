@@ -87,4 +87,19 @@ class CardController extends Controller
 
         return view('cards.activated', ['card' => $card]);
     }
+
+    /**
+     * [PROTOTYPE] Buat kartu demo baru untuk testing tanpa kartu fisik.
+     * Generate unique_code, simpan ke database, redirect ke halaman aktivasi.
+     * Nanti dihapus atau dipindah ke admin dashboard setelah auth jadi.
+     */
+    public function createDemo()
+    {
+        $card = Card::create([
+            'unique_code' => Card::generateUniqueCode(),
+            'status' => 'unactivated',
+        ]);
+
+        return redirect()->route('cards.activate.form', ['code' => $card->unique_code]);
+    }
 }
