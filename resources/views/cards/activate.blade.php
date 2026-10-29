@@ -3,103 +3,135 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aktivasi kartu — {{ $card->unique_code }}</title>
+    <title>Aktivasi Kartu — {{ $card->unique_code }}</title>
+    <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}">
+    <link rel="apple-touch-icon" href="{{ asset('favicon.png') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
             --ink: #0F172A;
             --primary: #2563EB;
-            --primary-hover: #1D4ED8;
+            --primary-dark: #1D4ED8;
             --surface: #FFFFFF;
-            --bg: #F1F5F9;
+            --bg: #F8FAFC;
             --muted: #64748B;
             --line: #E2E8F0;
-            --success: #16A34A;
-            --success-bg: #F0FDF4;
-            --error: #DC2626;
+            --success: #10B981;
+            --success-bg: #ECFDF5;
+            --error: #EF4444;
             --error-bg: #FEF2F2;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display', system-ui, sans-serif;
-            background: var(--bg);
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: radial-gradient(circle at 50% 0%, #EFF6FF 0%, var(--bg) 70%);
             display: flex;
             align-items: center;
             justify-content: center;
             min-height: 100vh;
-            padding: 24px 16px;
+            padding: 32px 16px;
             -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4, h5, h6, strong, b,
+        .card__title,
+        .card__brand,
+        .btn-activate,
+        .btn-maps {
+            font-family: 'Inter Tight', sans-serif !important;
+            letter-spacing: -0.03em;
         }
 
         .card {
             width: 100%;
-            max-width: 420px;
+            max-width: 440px;
             background: var(--surface);
-            border-radius: 12px;
+            border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 4px 24px rgba(15, 23, 42, 0.08);
+            box-shadow: 0 20px 40px -15px rgba(37, 99, 235, 0.12), 0 0 1px 1px rgba(226, 232, 240, 0.8);
+            border: 1px solid var(--line);
         }
 
-        /* ── Header (dark navy) ── */
+        /* ── Header ── */
         .card__header {
-            background: var(--ink);
+            background: linear-gradient(145deg, #0F172A 0%, #1E293B 100%);
             color: #fff;
-            padding: 24px 28px;
+            padding: 28px 28px 24px;
+            position: relative;
         }
 
         .card__brand {
-            font-size: 11px;
-            font-weight: 600;
-            letter-spacing: 1.5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 1px;
             text-transform: uppercase;
-            opacity: 0.4;
-            margin-bottom: 10px;
+            color: #94A3B8;
+            margin-bottom: 12px;
+        }
+
+        .card__brand-logo {
+            height: 24px;
+            width: auto;
+            object-fit: contain;
+            border-radius: 6px;
         }
 
         .card__title {
-            font-size: 20px;
-            font-weight: 700;
-            line-height: 1.3;
-            margin-bottom: 4px;
+            font-size: 22px;
+            font-weight: 800;
+            line-height: 1.25;
+            margin-bottom: 6px;
+            letter-spacing: -0.5px;
         }
 
         .card__subtitle {
             font-size: 13px;
-            opacity: 0.55;
+            color: #94A3B8;
             line-height: 1.5;
         }
 
         .card__code {
-            display: inline-block;
-            margin-top: 14px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 16px;
             padding: 6px 14px;
-            background: rgba(255, 255, 255, 0.08);
-            border-radius: 6px;
-            font-size: 16px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 100px;
+            font-size: 13px;
+            font-family: monospace;
             font-weight: 700;
-            letter-spacing: 2px;
+            letter-spacing: 1.5px;
+            color: #60A5FA;
         }
 
-        /* ── Body (form) ── */
+        /* ── Body ── */
         .card__body {
-            padding: 24px 28px 28px;
+            padding: 28px;
         }
 
         .card__hint {
             font-size: 13px;
             color: var(--muted);
             line-height: 1.6;
-            margin-bottom: 20px;
+            margin-bottom: 22px;
         }
 
         /* ── Alerts ── */
         .alert {
             padding: 12px 14px;
-            border-radius: 8px;
+            border-radius: 10px;
             font-size: 13px;
             line-height: 1.5;
-            margin-bottom: 16px;
+            margin-bottom: 18px;
         }
         .alert--success {
             background: var(--success-bg);
@@ -114,27 +146,27 @@
 
         /* ── Form ── */
         .form-group {
-            margin-bottom: 16px;
+            margin-bottom: 18px;
         }
 
         .form-group label {
             display: block;
             font-size: 13px;
-            font-weight: 600;
+            font-weight: 700;
             color: var(--ink);
             margin-bottom: 6px;
         }
 
         .form-group input {
             width: 100%;
-            padding: 11px 14px;
+            padding: 12px 16px;
             border: 1px solid var(--line);
-            border-radius: 8px;
+            border-radius: 12px;
             font-family: inherit;
             font-size: 14px;
             color: var(--ink);
-            background: var(--surface);
-            transition: border-color 0.2s, box-shadow 0.2s;
+            background: #fff;
+            transition: all 0.2s;
         }
 
         .form-group input::placeholder {
@@ -144,10 +176,10 @@
         .form-group input:focus {
             outline: none;
             border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+            box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.12);
         }
 
-        /* ── Input group (input + maps button) ── */
+        /* ── Input group ── */
         .input-group {
             display: flex;
             gap: 8px;
@@ -163,13 +195,13 @@
             display: flex;
             align-items: center;
             gap: 6px;
-            padding: 11px 14px;
+            padding: 12px 16px;
             background: var(--ink);
             color: #fff;
             border: none;
-            border-radius: 8px;
+            border-radius: 12px;
             font-family: inherit;
-            font-weight: 600;
+            font-weight: 700;
             font-size: 13px;
             cursor: pointer;
             text-decoration: none;
@@ -188,30 +220,32 @@
         }
 
         .form-hint {
-            font-size: 11px;
+            font-size: 12px;
             color: var(--muted);
-            margin-top: 6px;
+            margin-top: 8px;
             line-height: 1.5;
         }
 
         .btn-activate {
             display: block;
             width: 100%;
-            padding: 13px;
+            padding: 14px;
             margin-top: 24px;
-            background: var(--primary);
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
             color: #fff;
             border: none;
-            border-radius: 8px;
+            border-radius: 100px;
             font-family: inherit;
-            font-weight: 600;
+            font-weight: 700;
             font-size: 15px;
             cursor: pointer;
-            transition: background 0.2s;
+            box-shadow: 0 6px 18px rgba(37, 99, 235, 0.3);
+            transition: all 0.2s ease;
         }
 
         .btn-activate:hover {
-            background: var(--primary-hover);
+            transform: translateY(-1px);
+            box-shadow: 0 8px 24px rgba(37, 99, 235, 0.4);
         }
 
         .btn-activate:active {
@@ -221,8 +255,8 @@
         /* ── Footer ── */
         .card__footer {
             text-align: center;
-            padding: 0 28px 20px;
-            font-size: 11px;
+            padding: 0 28px 22px;
+            font-size: 12px;
             color: var(--muted);
         }
     </style>
@@ -231,16 +265,22 @@
     <div class="card">
         {{-- Header --}}
         <div class="card__header">
-            <div class="card__brand">Kartu Review</div>
-            <h1 class="card__title">Aktivasi kartu</h1>
-            <p class="card__subtitle">Isi data usaha kamu untuk mengaktifkan kartu ini.</p>
-            <div class="card__code">{{ $card->unique_code }}</div>
+            <div class="card__brand">
+                <img src="{{ asset('logo.png') }}" alt="Logo" class="card__brand-logo">
+                <span>Tapin</span>
+            </div>
+            <h1 class="card__title">Aktivasi Kartu Pintar</h1>
+            <p class="card__subtitle">Isi data usaha kamu untuk mulai menerima ulasan otomatis.</p>
+            <div class="card__code">
+                <span>ID:</span>
+                <span>{{ $card->unique_code }}</span>
+            </div>
         </div>
 
         {{-- Body --}}
         <div class="card__body">
             <p class="card__hint">
-                Setelah diaktifkan, setiap kartu ini di-tap atau di-scan, pelanggan akan langsung diarahkan ke halaman Google Review usaha kamu.
+                Setelah diaktifkan, setiap kali kartu ini di-tap atau di-scan, pelanggan akan langsung diarahkan ke halaman Google Review usaha kamu.
             </p>
 
             @if (session('success'))
@@ -259,8 +299,8 @@
                 @csrf
 
                 <div class="form-group">
-                    <label for="business_name">Nama usaha</label>
-                    <input type="text" id="business_name" name="business_name" placeholder="Contoh: Kopi Senja" value="{{ old('business_name') }}" required>
+                    <label for="business_name">Nama Usaha / Toko</label>
+                    <input type="text" id="business_name" name="business_name" placeholder="Contoh: Usaha Kamu" value="{{ old('business_name') }}" required>
                 </div>
 
                 <div class="form-group">
@@ -276,16 +316,16 @@
                         </a>
                     </div>
                     <div class="form-hint">
-                        Klik <strong>Maps</strong> → cari usaha kamu → tekan <strong>Bagikan</strong> → salin link → paste di sini.
+                        Klik <strong>Maps</strong> → cari usaha kamu → tekan <strong>Bagikan</strong> → salin link → paste di kolom ini.
                     </div>
                 </div>
 
-                <button type="submit" class="btn-activate">Aktivasi kartu sekarang</button>
+                <button type="submit" class="btn-activate">Aktivasi Kartu Sekarang</button>
             </form>
         </div>
 
         <div class="card__footer">
-            Kartu ini hanya bisa diaktivasi satu kali.
+            Kartu fisik ini akan langsung aktif permanen setelah disimpan.
         </div>
     </div>
 </body>

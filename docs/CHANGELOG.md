@@ -4,6 +4,129 @@ Catatan semua perubahan yang dilakukan pada proyek ini, diurutkan dari yang terb
 
 ---
 
+## 2026-10-29 — Mockup Smartphone iPhone Pro Ultra-Realistis & Google Review "Usaha Kamu"
+
+### Perubahan Utama
+- **Mockup Smartphone Ultra-Realistis (iPhone Pro Style)**:
+  - Mengembangkan ulang mockup CSS dengan detail kelas industri: bodi titanium gelap, tombol fisik samping (*volume rockers & power button*), status bar iOS asli dengan jam `09:41`, ikon baterai/sinyal, dan *Dynamic Island* ber-lensa.
+  - Lapisan kilau kaca diagonal (*screen sheen reflection*) yang memberi kesan kedalaman 3D nyata.
+  - Bottom sheet Google Maps ulasan bintang 5 interaktif dengan nama **Usaha Kamu**, badge *Bisnis Terverifikasi*, 5 bintang emas bercahaya, tag ulasan cepat, dan tombol *Posting Ulasan*.
+- **Pembaruan Teks**:
+  - Mengganti teks contoh "Kopi Senja Utama" menjadi **Usaha Kamu** pada hero stage dan form aktivasi.
+
+---
+
+## 2026-10-29 — Penerapan Font Inter Tight & Restorasi Mockup Smartphone Interaktif
+
+### Perubahan Utama
+- **Transisi Tipografi ke Google Font Inter Tight**:
+  - Mengganti font Sora dengan **Inter Tight** (`wght@600;700;800;900`) untuk semua elemen tebal, judul (`h1` s/d `h6`), badge, dan tombol CTA pada `welcome.blade.php`, `activate.blade.php`, dan `activated.blade.php`.
+  - Karakter font Inter Tight yang padat, proporsional, dan tajam memberikan kesan ultra-modern yang rapi dan profesional.
+- **Restorasi Mockup Smartphone CSS Interaktif**:
+  - Mengembalikan mockup smartphone ke frame dinamis dengan Dynamic Island, Google Card review toast bintang 5, dan animasi melayang (`float-subtle`).
+
+---
+
+## 2026-10-29 — Rebranding Tapin, Harga UMKM & Grid 2x2 Simetris
+
+### Perubahan Utama
+- **Rebranding Produk ke "Tapin"**:
+  - Mengganti seluruh nama merk dan logo dari LKartu-Review menjadi **Tapin** di seluruh view landing page, halaman aktivasi, dan halaman sukses aktivasi.
+- **Tipografi Modern — Google Font Sora**:
+  - Mengintegrasikan font Google **Sora** (`wght@600;700;800`) khusus untuk semua elemen cetak tebal, judul (`h1` s/d `h6`), badge, dan tombol CTA.
+  - Teks body tetap menggunakan **Plus Jakarta Sans** untuk kenyamanan membaca optimal.
+- **Hero Mockup Smartphone**:
+  - Mengganti frame mockup CSS dengan aset gambar nyata `public/assets/Mockup-Smartphone.jpg` dengan efek `float-subtle` dan shadow ambient.
+- **Penyesuaian Harga Spesial UMKM Jember**:
+  - Paket Single: Rp30.000 (dari Rp45.000)
+  - Paket Cafe & Resto (3 Kartu): Rp70.000 (dari Rp110.000 - Terlaris)
+  - Paket Multi Cabang (5 Kartu): Rp120.000 (dari Rp180.000)
+- **Grid Keunggulan 2x2 Presisi & Sejajar**:
+  - Menyempurnakan layout `#keunggulan` menjadi CSS Grid 2x2 simetris (`repeat(2, minmax(0, 1fr))`) dengan `align-items: stretch`.
+  - Menyamakan `min-height` judul fitur dan menyelaraskan panjang deskripsi agar seluruh card rata air dan tidak ada yang timpang atau bolong.
+- **Standarisasi 100% Bahasa Indonesia**:
+  - Seluruh copywriting website, landing page, dan alur aktivasi disajikan sepenuhnya dalam Bahasa Indonesia yang alami, bersih, dan semi-formal.
+
+---
+
+## 2026-10-29 — Penggantian Demo Tester dengan Paket Harga, FAQ Interaktif & Scroll Animation
+
+### Perubahan Utama
+- **Menghapus Section Demo Developer**: Bagian pembuatan kartu demo prototype pada landing page dihilangkan agar website tampil sebagai produk komersial siap jual.
+- **Section Paket Harga (`#harga`)**:
+  - Menyediakan 3 pilihan paket pemesanan: Paket Single (Rp99.000), Paket Cafe & Resto Pack (Rp249.000 - Best Seller), dan Paket Custom Brand (Rp399.000).
+  - Terintegrasi langsung dengan tombol pesan WhatsApp berformat template pesan otomatis.
+- **Section FAQ Interaktif (`#faq`)**:
+  - Menjawab 4 pertanyaan krusial pemilik usaha (biaya langganan, kebutuhan aplikasi, kartu HP non-NFC, dan pemindahan link).
+  - Dilengkapi accordion expand/collapse halus dengan icon chevron Lucide.
+- **Banner Final Call-to-Action**:
+  - Banner penutup elegan bernuansa navy dengan tombol WhatsApp hijau khas untuk konversi cepat.
+- **Lightweight Scroll Animation**:
+  - Menggunakan IntersectionObserver native yang ringan tanpa library eksternal.
+  - **Headline dikecualikan dari animasi**: Judul dan subjudul tampil instan, solid, dan cepat tanpa delay atau lag saat pengguna scroll.
+
+---
+
+## 2026-10-29 — Penerapan Desain Premium Popl.co & Lucide (Shadcn) Icons
+
+### Perubahan Utama
+- **Eliminasi Emoji / Anti "AI Slop"**:
+  - Semua emoji dihapus dari seluruh komponen tampilan.
+  - Mengintegrasikan **SVG Lucide Icons** (standar Shadcn UI) dengan stroke bersih dan presisi.
+- **Animasi Tipis & Halus (Popl Micro-Interactions)**:
+  - `@keyframes float-subtle`: Device mockup melayang sangat halus (3-5px).
+  - `@keyframes radar-ripple`: Gelombang pulsa NFC tipis pada stage interaktif kartu.
+  - Ticker Marquee horizontal halus yang menampilkan kategori bisnis (Kafe, Restoran, Barbershop, Klinik, Retail).
+  - Micro-scale hover pada tombol CTA dengan transisi panah interaktif.
+  - Efek pantulan cahaya (*sheen reflection*) dan 3D mousemove tilt pada kartu pintar fisik.
+- **Standar Tipografi & Layout**:
+  - Menggunakan font modern **Plus Jakarta Sans** dengan bobot tegas (800) dan letter-spacing presisi khas Popl.co.
+  - Komponen rating pill dengan tumpukan avatar pengguna, 5 bintang Lucide, dan badge Trustpilot/Google review style.
+- **Pembersihan Halaman Aktivasi & Konfirmasi**:
+  - Menghapus semua emoji dari `activate.blade.php` dan `activated.blade.php` untuk menjaga konsistensi desain B2B yang bersih dan profesional.
+
+---
+
+## 2026-10-29 — Redesign Frontend Gaya Cerah & Fun ala Popl
+
+### Perubahan Utama
+- **Landing Page (`welcome.blade.php`)**:
+  - **Hero Stage Interaktif 3D**: Menampilkan kartu pintar LKartu-Review dengan efek tilt 3D interaktif yang mengikuti kursor mouse dan mockup smartphone berlayar pop-up ulasan Google Review bintang 5 dengan animasi gelombang NFC radar.
+  - **Interactive Review Growth Calculator**: Widget kalkulator interaktif dengan slider pengunjung harian (10 s/d 300) yang menghitung potensi ulasan bulanan secara dinamis.
+  - **Cara Kerja 3 Langkah (Popl Style)**: Visualisasi langkah cepat (Taruh di meja -> Tap HP -> Review Bintang 5).
+  - **Bento Grid Keunggulan**: Layout kotak modular berisi fitur tahan air/kopi, tanpa baterai seumur hidup, kompatibilitas 99.9% HP, dan decoupled link cloud.
+  - **Playground Demo**: Form buat kartu demo dan lookup kartu yang rapi dan responsif.
+- **Form Aktivasi (`activate.blade.php`)**:
+  - Redesign kartu dengan sudut membulat ramah (20px radius), tombol aktivasi bergradien modern, badge ID kartu dinamis, dan helper Google Maps yang jelas.
+- **Konfirmasi Aktivasi (`activated.blade.php`)**:
+  - Tampilan sukses modern dengan stamp checkmark bernuansa cerah, QR code uji coba tajam, dan navigasi yang bersih.
+
+---
+
+## 2026-10-29 — Integrasi Logo LKartu-Review dan Favicon Icon URL
+
+### Perubahan utama
+- File logo `LKartu-Review.png` disalin ke aset publik (`public/logo.png`, `public/favicon.png`, dan `public/favicon.ico`).
+- Menambahkan icon browser (`<link rel="icon">` dan `<link rel="apple-touch-icon">`) di semua halaman utama.
+- Menampilkan visual logo pada header navigasi beranda dan panel aktivasi kartu.
+
+### File yang diubah
+
+#### `public/`
+- Menambahkan `public/logo.png` & `public/favicon.png`
+- Mengisi file `public/favicon.ico` dengan icon resmi
+
+#### `resources/views/welcome.blade.php`
+- Menambahkan tag favicon di `<head>`
+- Navbar brand sekarang menampilkan logo resmi di samping teks brand (`LKartu-Review`)
+- Menyesuaikan nama brand di copyright footer
+
+#### `resources/views/cards/activate.blade.php` & `resources/views/cards/activated.blade.php`
+- Menambahkan tag favicon di `<head>`
+- Header kartu sekarang menampilkan logo mini resmi LKartu-Review
+
+---
+
 ## 2026-09-09 — Tambah tombol "Kembali ke beranda" di halaman konfirmasi
 
 ### File yang diubah
